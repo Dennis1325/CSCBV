@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../connection.php';
-
+$_SESSION['username'];
 
 //'". $_SESSION['username']."
 if (isset($_SESSION['username'])) {
@@ -17,10 +17,13 @@ if (isset($_SESSION['username'])) {
 
     echo "<a href='UploadImage.php'>Go back</a> ";
 
-    if ($_SESSION['EndDate'] == date("Y-m-d")){
-        $EndDate = $_SESSION['EndDate'];
-        $query = "DELETE FROM `image_tables` WHERE EndDate ='".$EndDate."';";
-    }
+
+
+
+//    if ($_SESSION['EndDate'] == date("Y-m-d")){
+//        $EndDate = $_SESSION['EndDate'];
+//        $query = "DELETE FROM `image_tables` WHERE EndDate ='".$EndDate."';";
+//    }
 
 
 }

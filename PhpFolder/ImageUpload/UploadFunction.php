@@ -8,10 +8,9 @@ $target_file = $target_dir . $dateAdded;
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($_FILES['fileUpload']['name'], PATHINFO_EXTENSION));
 $descriptionBox = $_POST['descriptionBox'];
-$Username = $_POST['Username'];
 $dateEnds = $_POST['endDate'];
 
-$_SESSION['username'] = $Username;
+$_SESSION['username'];
 $_SESSION['date'] = $dateAdded;
 $_SESSION['location'] = $target_dir;
 $_SESSION['imagefileType'] = $imageFileType;
@@ -21,6 +20,7 @@ $_SESSION['EndDate'] = $dateEnds;
 
 //check if submit is pressed
 if (isset($_POST['submitFile'])) {
+    $Username = $_SESSION['username'];
     //check if there is a file
     if (!$_FILES['fileUpload']['name']) {
         echo "Sorry, no file selected<br>";
@@ -65,7 +65,7 @@ if (isset($_POST['submitFile'])) {
     $data = [
         'id' => null,
         'ImageFile' => $target_file,
-        'Username' => $Username,
+        'Username' => $_SESSION['username'],
         'Description' => $descriptionBox,
         'DateAdded' => $dateAdded,
         'EndDate' => $dateEnds
