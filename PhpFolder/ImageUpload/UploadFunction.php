@@ -9,6 +9,10 @@ $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($_FILES['fileUpload']['name'], PATHINFO_EXTENSION));
 $descriptionBox = $_POST['descriptionBox'];
 $dateEnds = $_POST['endDate'];
+$maxImgWidth = 200;
+$maxImgHeight = 200;
+$list = list($Height, $Width) = getimagesize($_FILES['fileUpload']['tmp_name']);
+
 
 $_SESSION['username'];
 $_SESSION['date'] = $dateAdded;
@@ -45,6 +49,11 @@ if (isset($_POST['submitFile'])) {
     //check the file type if its not jpg, jpeg, png, gif it will not be uploaded
     if ($imageFileType != "jpg" && $imageFileType = "jpeg" && $imageFileType = "png" && $imageFileType = "gif") {
         echo "Sorry, please use filetypes: jpg, jpeg, png, gif.<br>";
+    }
+    if($Height > $maxImgHeight || $Width > $maxImgWidth){
+        echo "Sorry image is not the right size<br>
+        Please use a max Width of 200px and a max Height of 200px<br>";
+        $uploadOk = 0;
     }
     //if anything is wrong you get this message
     if ($uploadOk == 0) {

@@ -16,6 +16,7 @@ if (isset($_SESSION['username'])) {
     }
 
     echo "<a href='UploadImage.php'>Go back</a> ";
+    echo "<a href='submitUsername.php'>Use different Username</a> ";
 
 
 
