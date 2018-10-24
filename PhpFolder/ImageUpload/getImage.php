@@ -166,5 +166,5 @@ include '../connection.php';
         // });
 
     // });
-
+//<input id='radioHide' type='radio' class='radio' onclick='send_value(this);' name='radio' value='FALSE" . $i . "' checked=($row['disabled'] === 1 ? true : false)>
 </script>
